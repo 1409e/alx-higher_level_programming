@@ -1,9 +1,8 @@
-#!/usr/bin/env python3
-import os
-import py_compile
-
-pyfile = os.environ.get('PYFILE')
-if pyfile:
-    pycfile = pyfile + 'c'
-    print(f"Compiling {pyfile} ...")
-    py_compile.compile(pyfile, pycfile)
+#!/bin/bash
+pyfile=$PYFILE
+if [[ -n $pyfile ]]; then
+    echo "Compiling $pyfile ..."
+    python3 -c "import py_compile; py_compile.compile('$pyfile', '$pyfile' + 'c')"
+else
+    echo "No Python file specified."
+fi
