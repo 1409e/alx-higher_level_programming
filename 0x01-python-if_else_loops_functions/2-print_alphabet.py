@@ -4,4 +4,4 @@ alphabet = ""
 for i in range(97, 123):
     alphabet += chr(i)
 
-print(alphabet)
+print("{}".format(alphabet))
